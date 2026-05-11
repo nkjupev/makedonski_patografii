@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="site-root" content=""/>
+  <base href="./"/>
+  <script src="./site-assets.js"></script>
+  <title>Уредувачка верзија · Архива</title>
+  <meta name="description" content="Уредувачка копија на веб-страницата за директно менување содржина од прелистувач."/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo editable" data-edit-key="navLogo">Архива · Illness Narratives</div>
+    <button type="button" class="mobile-nav-toggle" aria-controls="editor-nav-links" aria-expanded="false">
+      <span class="mobile-nav-toggle-label">Мени</span>
+      <span class="mobile-nav-toggle-bars" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <div class="nav-links" id="editor-nav-links">
+      <a href="editor.html" class="nav-link active">Уредувач</a>
+      <a href="index.html" class="nav-link">Јавна верзија</a>
+      <a href="about.html" class="nav-link">За истражувањето</a>
+    </div>
+  </nav>
+
+  <section class="editor-admin">
+    <div class="editor-admin-inner">
+      <span class="editor-admin-title">Уредувачка копија</span>
+      <button type="button" class="fbtn" id="toggle-edit-mode">Вклучи уредување</button>
+      <button type="button" class="fbtn" id="save-editor-content">Зачувај промени</button>
+      <button type="button" class="fbtn" id="export-editor-content">Експортирај промени</button>
+      <button type="button" class="fbtn" id="reset-editor-content">Ресетирај</button>
+    </div>
+    <p class="editor-admin-note">Ова е посебна копија за уредување. Промените се зачувуваат локално во овој прелистувач и подоцна може да се пренесат во главната страница и да се комитираат.</p>
+  </section>
+
+  <section class="hero">
+    <svg class="hero-canvas" viewBox="0 0 1200 580" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="eg1" cx="30%" cy="35%" r="55%">
+          <stop offset="0%" stop-color="#FFD700"/>
+          <stop offset="100%" stop-color="#FF8C00" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="eg2" cx="60%" cy="20%" r="50%">
+          <stop offset="0%" stop-color="#FF3DA0"/>
+          <stop offset="100%" stop-color="#FF3DA0" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="eg3" cx="15%" cy="70%" r="45%">
+          <stop offset="0%" stop-color="#00C97A"/>
+          <stop offset="100%" stop-color="#00C97A" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="eg4" cx="80%" cy="40%" r="50%">
+          <stop offset="0%" stop-color="#9B5FE3"/>
+          <stop offset="100%" stop-color="#9B5FE3" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="580" fill="#1a0e04"/>
+      <rect width="1200" height="580" fill="url(#eg1)" opacity="0.92"/>
+      <rect width="1200" height="580" fill="url(#eg2)" opacity="0.88"/>
+      <rect width="1200" height="580" fill="url(#eg3)" opacity="0.85"/>
+      <rect width="1200" height="580" fill="url(#eg4)" opacity="0.90"/>
+      <path d="M0 160 Q180 100 400 180 Q580 240 750 160 Q900 90 1100 170 Q1150 185 1200 175" stroke="#FFD700" stroke-width="4" fill="none" opacity="0.55"/>
+      <path d="M0 380 Q250 310 520 390 Q780 460 1050 370 Q1130 345 1200 360" stroke="#FF3DA0" stroke-width="3.5" fill="none" opacity="0.48"/>
+    </svg>
+
+    <div class="hero-content">
+      <p class="eyebrow editable" data-edit-key="heroEyebrow">Македонска книжевност · Medical Humanities · Прва архива</p>
+      <h1 class="hero-title editable" data-edit-key="heroTitle">Приказни за<br><em>болест и живот</em></h1>
+      <p class="hero-sub editable" data-edit-key="heroSub">Прва библиографија на патографии во македонската книжевност — гласови на пациенти, родители и семејства</p>
+      <div class="cta-row">
+        <button class="btn-white" onclick="document.getElementById('archive').scrollIntoView({behavior:'smooth'})">Прелистај архива</button>
+        <a href="about.html" class="btn-ghost">За проектот</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="legend-section">
+    <p class="section-label editable" data-edit-key="legendLabel">Боите на болеста — секоја нијанса носи приказна</p>
+    <div class="orbs-row">
+      <div class="orb-item" onclick="filterCards('childhood-cancer')">
+        <div class="orb" style="background:#FFD700;"></div>
+        <span class="orb-name editable" data-edit-key="orb1">Детски канцер</span>
+      </div>
+      <div class="orb-item" onclick="filterCards('breast-cancer')">
+        <div class="orb" style="background:#FF3DA0;"></div>
+        <span class="orb-name editable" data-edit-key="orb2">Карцином на дојка</span>
+      </div>
+      <div class="orb-item" onclick="filterCards('cancer')">
+        <div class="orb" style="background:#b0b0b0;"></div>
+        <span class="orb-name editable" data-edit-key="orb3">Општ канцер</span>
+      </div>
+      <div class="orb-item" onclick="filterCards('mental-illness')">
+        <div class="orb" style="background:#00C97A;"></div>
+        <span class="orb-name editable" data-edit-key="orb4">Ментална болест</span>
+      </div>
+      <div class="orb-item" onclick="filterCards('anxiety')">
+        <div class="orb" style="background:#00B4D8;"></div>
+        <span class="orb-name editable" data-edit-key="orb5">Анксиозност / ПТСН</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="archive-section" id="archive">
+    <div class="section-header">
+      <h2 class="section-title editable" data-edit-key="archiveTitle">Архива</h2>
+      <span class="section-count" id="card-count">4 записи · Македонска книжевност</span>
+    </div>
+
+    <div class="filter-row">
+      <button class="fbtn active" onclick="filterType('all', this)">Сите</button>
+      <button class="fbtn" onclick="filterType('autobiography', this)">Автобиографија</button>
+      <button class="fbtn" onclick="filterType('family', this)">Семејна нарација</button>
+      <button class="fbtn" onclick="filterType('fiction', this)">Фикција</button>
+      <button class="fbtn" onclick="filterType('poetry', this)">Поезија</button>
+    </div>
+
+    <div class="add-book-wrap">
+      <div class="add-book-toolbar">
+        <button type="button" class="fbtn" id="toggle-add-book">+ Додај книга</button>
+        <button type="button" class="fbtn" id="toggle-delete-mode">Избриши книга</button>
+      </div>
+      <form id="add-book-form" class="add-book-form hidden">
+        <p class="add-book-note">Оваа форма додава книги само во уредувачката копија.</p>
+        <div class="add-book-grid">
+          <label>
+            <span>Наслов</span>
+            <input type="text" id="new-title" required />
+          </label>
+          <label>
+            <span>Автор и година</span>
+            <input type="text" id="new-author" required />
+          </label>
+          <label>
+            <span>Тип</span>
+            <select id="new-type" required>
+              <option value="autobiography">Автобиографија</option>
+              <option value="family">Семејна нарација</option>
+              <option value="fiction">Фикција</option>
+              <option value="poetry">Поезија</option>
+            </select>
+          </label>
+          <label>
+            <span>Клуч за болест</span>
+            <input type="text" id="new-illness" required placeholder="Пр. childhood-cancer" />
+          </label>
+          <label>
+            <span>Боја</span>
+            <input type="color" id="new-color" value="#FFD700" />
+          </label>
+          <label>
+            <span>Тагови (со запирка)</span>
+            <input type="text" id="new-tags" />
+          </label>
+        </div>
+        <label class="full">
+          <span>Краток опис</span>
+          <textarea id="new-description" rows="3" required></textarea>
+        </label>
+        <div class="add-book-actions">
+          <button type="submit" class="btn-white">Зачувај книга</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="cards-grid" id="cards-grid">
+      <article class="book-card" data-static-id="static-1" data-type="autobiography" data-illness="childhood-cancer">
+        <button type="button" class="delete-card-btn" data-source="static" data-id="static-1" aria-label="Delete book">✕</button>
+        <div class="card-band" style="background:#FFD700;"></div>
+        <div class="card-cover" style="background:#FFFBE6;">
+          <p class="cover-placeholder editable" data-edit-key="cover1">[ Cover image ]<br>Автобиографија</p>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag editable" data-edit-key="tag1a">Автобиографија</span>
+            <span class="tag editable" data-edit-key="tag1b">Глас на пациент</span>
+          </div>
+          <h3 class="card-title editable" data-edit-key="title1">Наслов на книгата</h3>
+          <p class="card-author editable" data-edit-key="author1">Автор Презиме · 2018</p>
+          <p class="card-desc editable" data-edit-key="desc1"><span class="illness-dot" style="background:#FFD700;"></span>Детски канцер<br><br>Сведоштво на мајка напишано со вистински имиња и вистински настани, кое го следи патувањето низ болеста и надежта.</p>
+          <div class="card-footer">
+            <span class="card-type-badge editable" data-edit-key="badge1">Автобиографија</span>
+            <a href="story.html" class="card-read-btn">Прочитај повеќе</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book-card" data-static-id="static-2" data-type="family" data-illness="alzheimers">
+        <button type="button" class="delete-card-btn" data-source="static" data-id="static-2" aria-label="Delete book">✕</button>
+        <div class="card-band" style="background:#9B5FE3;"></div>
+        <div class="card-cover" style="background:#F3EEFF;">
+          <p class="cover-placeholder editable" data-edit-key="cover2">[ Cover image ]<br>Семејна книга</p>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag editable" data-edit-key="tag2a">Семејна нарација</span>
+            <span class="tag editable" data-edit-key="tag2b">Глас на татко</span>
+          </div>
+          <h3 class="card-title editable" data-edit-key="title2">Наслов на книгата</h3>
+          <p class="card-author editable" data-edit-key="author2">Автор Презиме · 2021</p>
+          <p class="card-desc editable" data-edit-key="desc2"><span class="illness-dot" style="background:#9B5FE3;"></span>Невролошка болест<br><br>Татко пишува за својот син, за меморијата, губењето и кревките граници на личниот идентитет.</p>
+          <div class="card-footer">
+            <span class="card-type-badge editable" data-edit-key="badge2">Семејна нарација</span>
+            <a href="story.html" class="card-read-btn">Прочитај повеќе</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book-card" data-static-id="static-3" data-type="poetry" data-illness="mental-illness">
+        <button type="button" class="delete-card-btn" data-source="static" data-id="static-3" aria-label="Delete book">✕</button>
+        <div class="card-band" style="background:#00C97A;"></div>
+        <div class="card-cover" style="background:#E6FFF5;">
+          <p class="cover-placeholder editable" data-edit-key="cover3">[ Cover image ]<br>Поезија</p>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag editable" data-edit-key="tag3a">Поезија</span>
+            <span class="tag editable" data-edit-key="tag3b">Личен глас</span>
+          </div>
+          <h3 class="card-title editable" data-edit-key="title3">Наслов на книгата</h3>
+          <p class="card-author editable" data-edit-key="author3">Автор Презиме · 2015</p>
+          <p class="card-desc editable" data-edit-key="desc3"><span class="illness-dot" style="background:#00C97A;"></span>Ментална болест<br><br>Циклус песни родени од искуството со депресија, прецизни и тивки, но силно емотивни.</p>
+          <div class="card-footer">
+            <span class="card-type-badge editable" data-edit-key="badge3">Поезија</span>
+            <a href="story.html" class="card-read-btn">Прочитај повеќе</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book-card" data-static-id="static-4" data-type="fiction" data-illness="chronic-pain">
+        <button type="button" class="delete-card-btn" data-source="static" data-id="static-4" aria-label="Delete book">✕</button>
+        <div class="card-band" style="background:#E8003A;"></div>
+        <div class="card-cover" style="background:#FFF0F3;">
+          <p class="cover-placeholder editable" data-edit-key="cover4">[ Cover image ]<br>Фикција</p>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag editable" data-edit-key="tag4a">Фикција</span>
+            <span class="tag editable" data-edit-key="tag4b">Патографија</span>
+          </div>
+          <h3 class="card-title editable" data-edit-key="title4">Наслов на книгата</h3>
+          <p class="card-author editable" data-edit-key="author4">Автор Презиме · 2020</p>
+          <p class="card-desc editable" data-edit-key="desc4"><span class="illness-dot" style="background:#E8003A;"></span>Хронична болка<br><br>Фикциска нарација инспирирана од вистинско искуство, каде имињата се сменети, но болката останува иста.</p>
+          <div class="card-footer">
+            <span class="card-type-badge editable" data-edit-key="badge4">Фикција</span>
+            <a href="story.html" class="card-read-btn">Прочитај повеќе</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about-strip">
+    <h2 class="about-strip-title editable" data-edit-key="aboutStripTitle">Првата <em>архива</em> од ваков тип во македонската книжевност</h2>
+    <p class="about-strip-text editable" data-edit-key="aboutStripText">Оваа библиографија собира автобиографии, семејни нарации, фикција и поезија — приказни што досега не биле систематизирани како корпус на медицинска хуманистика.</p>
+    <a href="about.html" class="btn-yellow">Прочитај ја методологијата</a>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <div class="footer-logo editable" data-edit-key="footerLogo">Архива · Illness Narratives in Macedonian Literature</div>
+      <div class="footer-copy editable" data-edit-key="footerCopy">© 2025 · Прва архива · Медицинска хуманистика · Северна Македонија</div>
+    </div>
+    <address class="footer-contact-info" aria-label="Contact information">
+      <a href="mailto:t.kjupeva@iml.ukim.edu.mk">t.kjupeva@iml.ukim.edu.mk</a>
+      <a href="tel:+389707922574">+389707922574</a>
+    </address>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    const EDITOR_CONTENT_KEY = 'editorPageContentV1';
+    const EDITOR_CUSTOM_BOOKS_KEY = 'editorCustomBooksV1';
+    const EDITOR_HIDDEN_BOOKS_KEY = 'editorHiddenStaticBooksV1';
+
+    let editMode = false;
+    let deleteMode = false;
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, function (ch) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[ch];
+      });
+    }
+
+    function toggleEditMode(forceState) {
+      editMode = typeof forceState === 'boolean' ? forceState : !editMode;
+      document.body.classList.toggle('editable-active', editMode);
+      document.querySelectorAll('.editable').forEach(function (el) {
+        el.contentEditable = editMode ? 'true' : 'false';
+        el.spellcheck = editMode;
+      });
+      document.getElementById('toggle-edit-mode').classList.toggle('active', editMode);
+      document.getElementById('toggle-edit-mode').textContent = editMode ? 'Исклучи уредување' : 'Вклучи уредување';
+    }
+
+    function saveEditableContent() {
+      const data = {};
+      document.querySelectorAll('[data-edit-key]').forEach(function (el) {
+        data[el.dataset.editKey] = el.innerHTML;
+      });
+      localStorage.setItem(EDITOR_CONTENT_KEY, JSON.stringify(data));
+    }
+
+    function loadEditableContent() {
+      try {
+        const data = JSON.parse(localStorage.getItem(EDITOR_CONTENT_KEY) || '{}');
+        Object.keys(data).forEach(function (key) {
+          const el = document.querySelector('[data-edit-key="' + key + '"]');
+          if (el) el.innerHTML = data[key];
+        });
+      } catch (e) {}
+    }
+
+    function readCustomBooks() {
+      try {
+        return JSON.parse(localStorage.getItem(EDITOR_CUSTOM_BOOKS_KEY) || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveCustomBooks(books) {
+      localStorage.setItem(EDITOR_CUSTOM_BOOKS_KEY, JSON.stringify(books));
+    }
+
+    function readHiddenStaticBooks() {
+      try {
+        return JSON.parse(localStorage.getItem(EDITOR_HIDDEN_BOOKS_KEY) || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveHiddenStaticBooks(ids) {
+      localStorage.setItem(EDITOR_HIDDEN_BOOKS_KEY, JSON.stringify(ids));
+    }
+
+    function getTypeLabel(type) {
+      return {
+        autobiography: 'Автобиографија',
+        family: 'Семејна нарација',
+        fiction: 'Фикција',
+        poetry: 'Поезија'
+      }[type] || type;
+    }
+
+    function updateCountLabel(text) {
+      document.getElementById('card-count').textContent = text;
+    }
+
+    function setDefaultCountLabel() {
+      const total = document.querySelectorAll('.book-card:not([data-deleted="true"])').length;
+      updateCountLabel(total + ' записи · Македонска книжевност');
+    }
+
+    function createCardElement(book) {
+      const article = document.createElement('article');
+      article.className = 'book-card custom-book-card';
+      article.dataset.customId = book.id;
+      article.dataset.type = book.type;
+      article.dataset.illness = book.illness;
+      article.innerHTML =
+        '<button type="button" class="delete-card-btn" data-source="custom" data-id="' + book.id + '" aria-label="Delete book">✕</button>' +
+        '<div class="card-band" style="background:' + book.color + ';"></div>' +
+        '<div class="card-cover" style="background:#f8f8f8;">' +
+          '<p class="cover-placeholder">[ Cover image ]<br>' + getTypeLabel(book.type) + '</p>' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-tags">' + (book.tags || []).map(function (tag) { return '<span class="tag">' + tag + '</span>'; }).join('') + '</div>' +
+          '<h3 class="card-title">' + book.title + '</h3>' +
+          '<p class="card-author">' + book.author + '</p>' +
+          '<p class="card-desc"><span class="illness-dot" style="background:' + book.color + ';"></span>' + book.illness + '<br><br>' + book.description + '</p>' +
+          '<div class="card-footer">' +
+            '<span class="card-type-badge">' + getTypeLabel(book.type) + '</span>' +
+            '<a href="story.html" class="card-read-btn">Прочитај повеќе</a>' +
+          '</div>' +
+        '</div>';
+      return article;
+    }
+
+    function applyHiddenStaticCards() {
+      const hidden = new Set(readHiddenStaticBooks());
+      document.querySelectorAll('.book-card:not(.custom-book-card)').forEach(function (card) {
+        const isHidden = hidden.has(card.dataset.staticId);
+        card.dataset.deleted = isHidden ? 'true' : 'false';
+        card.style.display = isHidden ? 'none' : 'flex';
+      });
+    }
+
+    function renderCustomBooks() {
+      document.querySelectorAll('.custom-book-card').forEach(function (card) {
+        card.remove();
+      });
+      const grid = document.getElementById('cards-grid');
+      readCustomBooks().forEach(function (book) {
+        grid.appendChild(createCardElement(book));
+      });
+      applyHiddenStaticCards();
+      setDefaultCountLabel();
+    }
+
+    function scrollToAddedBook(bookId) {
+      const card = document.querySelector('.custom-book-card[data-custom-id="' + bookId + '"]');
+      if (!card) return;
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('new-card-highlight');
+      setTimeout(function () {
+        card.classList.remove('new-card-highlight');
+      }, 1200);
+    }
+
+    function filterType(type, btn) {
+      document.querySelectorAll('.fbtn').forEach(function (b) {
+        if (b.closest('.filter-row')) b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.book-card');
+      let visible = 0;
+      cards.forEach(function (card) {
+        const isDeleted = card.dataset.deleted === 'true';
+        const show = !isDeleted && (type === 'all' || card.dataset.type === type);
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      updateCountLabel(visible + ' записи · Македонска книжевност');
+    }
+
+    function filterCards(illness) {
+      const cards = document.querySelectorAll('.book-card');
+      let visible = 0;
+      cards.forEach(function (card) {
+        const isDeleted = card.dataset.deleted === 'true';
+        const show = !isDeleted && card.dataset.illness === illness;
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      document.querySelectorAll('.fbtn').forEach(function (b) {
+        if (b.closest('.filter-row')) b.classList.remove('active');
+      });
+      updateCountLabel(visible + ' записи · кликни „Сите“ за ресет');
+    }
+
+    function exportChanges() {
+      const payload = {
+        textEdits: JSON.parse(localStorage.getItem(EDITOR_CONTENT_KEY) || '{}'),
+        customBooks: readCustomBooks(),
+        hiddenStaticBooks: readHiddenStaticBooks()
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'editor-changes.json';
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function setupEditorActions() {
+      document.getElementById('toggle-edit-mode').addEventListener('click', function () {
+        toggleEditMode();
+      });
+
+      document.getElementById('save-editor-content').addEventListener('click', function () {
+        saveEditableContent();
+      });
+
+      document.getElementById('export-editor-content').addEventListener('click', function () {
+        saveEditableContent();
+        exportChanges();
+      });
+
+      document.getElementById('reset-editor-content').addEventListener('click', function () {
+        localStorage.removeItem(EDITOR_CONTENT_KEY);
+        localStorage.removeItem(EDITOR_CUSTOM_BOOKS_KEY);
+        localStorage.removeItem(EDITOR_HIDDEN_BOOKS_KEY);
+        window.location.reload();
+      });
+
+      const form = document.getElementById('add-book-form');
+      document.getElementById('toggle-add-book').addEventListener('click', function () {
+        form.classList.toggle('hidden');
+      });
+
+      document.getElementById('toggle-delete-mode').addEventListener('click', function () {
+        deleteMode = !deleteMode;
+        document.body.classList.toggle('delete-mode', deleteMode);
+        this.classList.toggle('active', deleteMode);
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const books = readCustomBooks();
+        const newBook = {
+          id: 'book-' + Date.now() + '-' + Math.random().toString(16).slice(2),
+          title: escapeHtml(document.getElementById('new-title').value.trim()),
+          author: escapeHtml(document.getElementById('new-author').value.trim()),
+          type: document.getElementById('new-type').value,
+          illness: escapeHtml(document.getElementById('new-illness').value.trim()),
+          color: document.getElementById('new-color').value,
+          description: escapeHtml(document.getElementById('new-description').value.trim()),
+          tags: (document.getElementById('new-tags').value.trim()
+            ? document.getElementById('new-tags').value.split(',').map(function (tag) { return escapeHtml(tag.trim()); }).filter(Boolean).slice(0, 3)
+            : [getTypeLabel(document.getElementById('new-type').value)])
+        };
+        books.push(newBook);
+        saveCustomBooks(books);
+        renderCustomBooks();
+        form.reset();
+        document.getElementById('new-color').value = '#FFD700';
+        form.classList.add('hidden');
+        setTimeout(function () {
+          scrollToAddedBook(newBook.id);
+        }, 120);
+      });
+
+      document.getElementById('cards-grid').addEventListener('click', function (event) {
+        const btn = event.target.closest('.delete-card-btn');
+        if (!btn || !deleteMode) return;
+        if (btn.dataset.source === 'custom') {
+          saveCustomBooks(readCustomBooks().filter(function (book) { return book.id !== btn.dataset.id; }));
+        } else {
+          const hidden = new Set(readHiddenStaticBooks());
+          hidden.add(btn.dataset.id);
+          saveHiddenStaticBooks(Array.from(hidden));
+        }
+        renderCustomBooks();
+      });
+    }
+
+    loadEditableContent();
+    renderCustomBooks();
+    setupEditorActions();
+    toggleEditMode(false);
+  </script>
+</body>
+</html>

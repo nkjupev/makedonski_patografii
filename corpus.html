@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="site-root" content=""/>
+  <base href="./"/>
+  <script src="./site-assets.js"></script>
+  <title>Корпус · Гласови на телото</title>
+  <meta name="description" content="Корпус на книги од архивата: автобиографии, семејни нарации, фикција и поезија."/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body data-page="corpus" class="corpus-page">
+
+  <nav class="nav nav-public index-nav index-nav--visible index-nav--compact" id="index-nav" aria-label="Главна навигација">
+    <div class="index-nav-tabs-row">
+      <div class="index-nav-links-wrap">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link" data-i18n="navHome">Дома</a>
+          <a href="corpus.html" class="nav-link active" data-i18n="navCorpus">Корпус</a>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link index-nav-about-link" data-i18n="navAboutSite">За истражувањето</a>
+      <a href="author.html" class="nav-link index-nav-about-link" data-i18n="navAboutAuthor">За авторката</a>
+      <a href="contact.html" class="nav-link index-nav-about-link" data-i18n="navContact">Контакт</a>
+    </div>
+    <div class="index-nav-center-cluster">
+      <span class="index-nav-center-title" data-i18n="navScrollBrand" id="index-nav-brand">Гласови на телото</span>
+    </div>
+    <button type="button" class="mobile-nav-toggle" aria-controls="index-nav" aria-expanded="false">
+      <span class="mobile-nav-toggle-label">Мени</span>
+      <span class="mobile-nav-toggle-bars" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <div class="index-nav-end">
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button type="button" class="lang-btn active" data-lang="mk">MK</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="corpus-main">
+    <header class="corpus-header">
+      <h1 class="corpus-title" data-i18n="corpusPageTitle">КОРПУС</h1>
+    </header>
+
+    <section class="corpus-controls" aria-label="Corpus controls">
+      <div class="corpus-control-left">
+        <label class="sr-only" for="corpus-type-filter" data-i18n="corpusFilterLabel">Филтер по тип</label>
+        <select id="corpus-type-filter" class="corpus-select">
+          <option value="all" data-i18n="filterAll">Сите</option>
+          <option value="autobiography" data-i18n="filterAutobiography">Автобиографија</option>
+          <option value="family" data-i18n="filterFamily">Семејна нарација</option>
+          <option value="fiction" data-i18n="filterFiction">Фикција</option>
+          <option value="poetry" data-i18n="filterPoetry">Поезија</option>
+        </select>
+      </div>
+      <div class="corpus-control-search">
+        <label class="sr-only" for="corpus-search" data-i18n="corpusSearchLabel">Пребарување книга</label>
+        <input
+          type="search"
+          id="corpus-search"
+          class="corpus-search-input"
+          placeholder="Пребарај по наслов или автор..."
+          aria-label="Пребарување книга"
+        />
+      </div>
+      <div class="corpus-control-right">
+        <label class="sr-only" for="corpus-sort" data-i18n="corpusSortLabel">Сортирање</label>
+        <select id="corpus-sort" class="corpus-select corpus-select--small">
+          <option value="title-asc" data-i18n="corpusSortTitleAsc">Наслов A-Z</option>
+          <option value="title-desc" data-i18n="corpusSortTitleDesc">Наслов Z-A</option>
+          <option value="author-asc" data-i18n="corpusSortAuthorAsc">Автор A-Z</option>
+        </select>
+        <span class="corpus-count" id="corpus-count">12 записи</span>
+      </div>
+    </section>
+
+    <section class="corpus-grid" id="corpus-grid">
+      <article class="corpus-card" data-type="autobiography" data-title="Почетокот на крајот" data-author="Даниел Јанев" data-publisher="Еуро-фарм" data-year="2023" data-location="Скопје" data-illustrator="Нема" data-illness-key="multiple-sclerosis" data-illness-narrative="Мултиплекс склероза — Девојката со портокаловата марама; Почетокот на крајот" data-description="Автобиографски дневник и патографија за животот со мултиплекс склероза. Книгата ја спојува личната исповед со стручен увид, а болеста ја претвора во наративна метафора за болка, издржливост и себеспознавање.">
+        <div class="corpus-cover">
+          <img src="assets/pochetokot-na-krajot.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">(авто)патографија</p>
+        <h3 class="corpus-card-title">Почетокот на крајот</h3>
+        <p class="corpus-card-author">Даниел Јанев</p>
+      </article>
+      <article class="corpus-card" data-type="autobiography" data-title="Убиецот кој не ме уби" data-author="Ивана Милошевска" data-publisher="Индиго хаб" data-year="2024" data-location="Скопје" data-illustrator="Нема" data-illness-key="acute-myeloid-leukemia" data-illness-narrative="Леукемија — Убиецот кој не ме уби" data-description="Исповедно сведоштво за борбата со акутна миелоидна леукемија. Нарацијата е хибрид од болнички дневник, лична проза и мотивациски повик за отпорност, солидарност и надеж.">
+        <div class="corpus-cover">
+          <img src="assets/ubiecot-koj-ne-me-ubi.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">(авто)патографија</p>
+        <h3 class="corpus-card-title">Убиецот кој не ме уби</h3>
+        <p class="corpus-card-author">Ивана Милошевска</p>
+      </article>
+      <article class="corpus-card" data-type="family" data-title="Кога мама заборави да ме сака" data-author="Драгица Русевска Христова" data-publisher="Топер" data-year="2022" data-location="Скопје" data-illustrator="Нема" data-illness-key="alzheimers" data-illness-narrative="Алцхајмерова болест — Кога мама заборави да ме сака" data-description="Интимно и документарно сведоштво за искуствата со Алцхајмерова болест и реверзијата на родителско-детските улоги. Текстот ја отвора темата на негата, изолацијата и етичката тежина на секојдневната грижа.">
+        <div class="corpus-cover">
+          <img src="assets/koga-mama-zaboravi-da-me-saka.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">(хетеро)патографија</p>
+        <h3 class="corpus-card-title">Кога мама заборави да ме сака</h3>
+        <p class="corpus-card-author">Драгица Русевска Христова</p>
+      </article>
+      <article class="corpus-card" data-type="fiction" data-title="Девојката со портокаловата марама" data-author="Сања Поповска" data-publisher="Дата песнопој" data-year="2020" data-location="Битола" data-illustrator="Нема" data-illness-key="multiple-sclerosis" data-illness-narrative="Мултиплекс склероза — Девојката со портокаловата марама; Почетокот на крајот" data-description="Роман на граница меѓу автобиографија и фикција, изграден околу искуството со мултиплекс склероза. Анахроничната структура и силната симболика ја претвораат траумата во јавно сведоштво за издржливост.">
+        <div class="corpus-cover">
+          <img src="assets/devojkata-so-portokalovata-marama.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">автофикциска патографија</p>
+        <h3 class="corpus-card-title">Девојката со портокаловата марама</h3>
+        <p class="corpus-card-author">Сања Поповска</p>
+      </article>
+
+      <article class="corpus-card" data-type="fiction" data-title="Пресек" data-author="Маја Трајковиќ" data-publisher="Дата песнопој" data-year="2023" data-location="Битола" data-illustrator="Нема" data-illness-key="breast-cancer" data-illness-narrative="Канцер — Пресек; Безсловен; Јас сум жива" data-description="Исповедна проза за болеста како пресек на животот, идентитетот и женственоста. Болеста е катализатор за лична и општествена критика, со поетски јазик и алегориска структура.">
+        <div class="corpus-cover">
+          <img src="assets/presek.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">автофикциска патографија</p>
+        <h3 class="corpus-card-title">Пресек</h3>
+        <p class="corpus-card-author">Маја Трајковиќ</p>
+      </article>
+      <article class="corpus-card" data-type="autobiography" data-title="Еден мој ден" data-author="Група автори" data-publisher="Пркос" data-year="2020" data-location="Скопје" data-illustrator="Нема" data-illness-key="disability-multiple-conditions" data-illness-narrative="Даунов синдром — Живот вреден за живеење; Еден мој ден&#10;Интелектуална попреченост (ACC) — Живот вреден за живеење&#10;Церебрална парализа — Живот вреден за живеење; Еден мој ден&#10;Аутизам — Живот вреден за живеење; Еден мој ден; Светот на аутизмот: Патувањето на Леон&#10;Анксиозност — Зошто јас?: мојата борба со анксиозноста, стравовите и со паничните напади&#10;Панични напади — Зошто јас?: мојата борба со анксиозноста, стравовите и со паничните напади&#10;Параплегија — Еден мој ден&#10;Синовиом — Еден мој ден&#10;Хередитарен ангиоедем (ХАЕ) — Еден мој ден&#10;Оштетен вид — Еден мој ден&#10;Физички инвалидитет — Еден мој ден&#10;Гоше — Еден мој ден&#10;Синдром Вилијамс — Еден мој ден" data-description="Мултигласна патографска антологија од автобиографски микронаративи за живот со попреченост. Книгата има документарна, едукативна и терапевтска вредност и отвора простор за видливост на маргинализирани искуства.">
+        <div class="corpus-cover">
+          <img src="assets/eden-moj-den.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">полифонична (колективна) патографија</p>
+        <h3 class="corpus-card-title">Еден мој ден</h3>
+        <p class="corpus-card-author">Група автори</p>
+      </article>
+      <article class="corpus-card" data-type="autobiography" data-title="Безсловен" data-author="Кирил Ангелов" data-publisher="Сакам книги" data-year="2024" data-location="Скопје" data-illustrator="Нема" data-illness-key="cancer" data-illness-narrative="Канцер — Пресек; Безсловен; Јас сум жива" data-description="Современ автобиографски роман за искуствата од телесното и психичкото страдање, за траумата и реконструкцијата на идентитетот. Нелинеарната структура и документарните вметнувања ја претвораат личната болка во сведоштво и чин на исцелување.">
+        <div class="corpus-cover">
+          <img src="assets/bezsloven.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">автофикциска патографија</p>
+        <h3 class="corpus-card-title">Безсловен</h3>
+        <p class="corpus-card-author">Кирил Ангелов</p>
+      </article>
+      <article class="corpus-card" data-type="family" data-title="Живот вреден за живеење" data-author="Мимоза Петревска Георгиева; Емилија Георгиевска-Наневска; Драги Неделчевски" data-publisher="Или-Или" data-year="2016" data-location="Скопје" data-illustrator="Нема" data-illness-key="down-syndrome-cerebral-palsy-autism" data-illness-narrative="Даунов синдром — Живот вреден за живеење; Еден мој ден&#10;Интелектуална попреченост (ACC) — Живот вреден за живеење&#10;Церебрална парализа — Живот вреден за живеење; Еден мој ден&#10;Аутизам — Живот вреден за живеење; Еден мој ден; Светот на аутизмот: Патувањето на Леон" data-description="Збирка сведоштва на родители и семејства за живот со попреченост. Текстовите се на пресек меѓу патографија и документарна литература, со силна етичка и хуманистичка димензија.">
+        <div class="corpus-cover">
+          <img src="assets/zhivot-vreden-za-zhiveenje.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">полифонична (колективна) патографија</p>
+        <h3 class="corpus-card-title">Живот вреден за живеење</h3>
+        <p class="corpus-card-author">М. Петревска Георгиева и др.</p>
+      </article>
+
+      <article class="corpus-card" data-type="family" data-title="Во чекор со судбината" data-author="Тони Пејчиновски" data-publisher="Т. Пејчиновски" data-year="2025" data-location="Охрид" data-illustrator="Нема" data-illness-key="perthes-disease" data-illness-narrative="Ретка болест / Perthes disease — Во чекор со судбината" data-description="Хибридна исповедно-документарна хроника за ретка болест (Perthes disease) и семејната борба. Делото спојува личен глас, архивски материјали и колективно сведоштво со силен општествен контекст.">
+        <div class="corpus-cover">
+          <img src="assets/vo-chekor-so-sudbinata.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">колаборативна / полифонична (хетеро)патографија</p>
+        <h3 class="corpus-card-title">Во чекор со судбината</h3>
+        <p class="corpus-card-author">Тони Пејчиновски</p>
+      </article>
+      <article class="corpus-card" data-type="family" data-title="Светот на аутизмот: Патувањето на Леон" data-author="Амела Мемиш Апостоловска" data-publisher="Здружение „Гласот од тишината“" data-year="2025" data-location="Скопје" data-illustrator="Нема" data-illness-key="autism-spectrum" data-illness-narrative="Аутизам — Живот вреден за живеење; Еден мој ден; Светот на аутизмот: Патувањето на Леон" data-description="Наратив што го прикажува аутизмот преку сетилното искуство на детето, а не преку дефицит. Делото комбинира сведоштво и книжевна форма, отворајќи простор за прифаќање и емпатија.">
+        <div class="corpus-cover">
+          <img src="assets/svetot-na-autizmot.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">(хетеро)патографија</p>
+        <h3 class="corpus-card-title">Светот на аутизмот: Патувањето на Леон</h3>
+        <p class="corpus-card-author">Амела Мемиш Апостоловска</p>
+      </article>
+      <article class="corpus-card" data-type="autobiography" data-title="Зошто јас?: мојата борба со анксиозноста, стравовите и со паничните напади" data-author="Мартин Јовановски" data-publisher="Арс Ламина / Арс Либрис" data-year="2019" data-location="Скопје" data-illustrator="Нема" data-illness-key="anxiety-panic-attacks" data-illness-narrative="Анксиозност — Зошто јас?: мојата борба со анксиозноста, стравовите и со паничните напади&#10;Панични напади — Зошто јас?: мојата борба со анксиозноста, стравовите и со паничните напади" data-description="Лично сведоштво за анксиозност и панични напади, каде што пишувањето е терапевтски процес. Фрагментарниот стил и директниот јазик го претвораат искуството на траума во автентичен наративен глас.">
+        <div class="corpus-cover">
+          <img src="assets/zoshto-jas.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">(авто)патографија</p>
+        <h3 class="corpus-card-title">Зошто јас?</h3>
+        <p class="corpus-card-author">Мартин Јовановски</p>
+      </article>
+      <article class="corpus-card" data-type="autobiography" data-title="Јас сум жива" data-author="Андријана Мациев; Јулија Мациевска" data-publisher="Икона" data-year="2025" data-location="Скопје" data-illustrator="Нема" data-illness-key="cancer" data-illness-narrative="Канцер — Пресек; Безсловен; Јас сум жива" data-description="Автобиографија, дневник и елегична хроника за искуството со болеста(канцер). Прекинот и продолжувањето на гласот меѓу Андријана и Јулија создаваат силно сведоштво за болката, загубата и достоинството.">
+        <div class="corpus-cover">
+          <img src="assets/jas-sum-zhiva.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <p class="corpus-card-type">(авто)патографија / (хетеро)патографија</p>
+        <h3 class="corpus-card-title">Јас сум жива</h3>
+        <p class="corpus-card-author">Андријана Мациев; Јулија Мациевска</p>
+      </article>
+    </section>
+  </main>
+
+  <div class="corpus-modal" id="corpus-modal" aria-hidden="true">
+    <div class="corpus-modal-backdrop" id="corpus-modal-backdrop"></div>
+    <section class="corpus-modal-panel" role="dialog" aria-modal="true" aria-labelledby="corpus-modal-title">
+      <div class="corpus-modal-layout">
+        <div class="corpus-modal-cover-wrap">
+          <div class="corpus-modal-carousel-head">
+            <button type="button" class="corpus-modal-arrow" id="corpus-modal-prev">
+              <span class="sr-only" data-i18n="corpusModalPrev">Претходна книга</span>
+              <svg class="corpus-modal-arrow-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"/>
+              </svg>
+            </button>
+            <button type="button" class="corpus-modal-arrow" id="corpus-modal-next">
+              <span class="sr-only" data-i18n="corpusModalNext">Следна книга</span>
+              <svg class="corpus-modal-arrow-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"/>
+              </svg>
+            </button>
+          </div>
+          <div class="corpus-modal-carousel" aria-hidden="true">
+            <div class="corpus-modal-carousel-viewport" id="corpus-modal-viewport">
+              <div class="corpus-modal-carousel-track" id="corpus-modal-track">
+                <div class="corpus-modal-slide">
+                  <div class="corpus-modal-slide-inner">
+                    <div class="corpus-modal-cover corpus-modal-cover--slide" id="corpus-slide-cover-prev"></div>
+                  </div>
+                </div>
+                <div class="corpus-modal-slide">
+                  <div class="corpus-modal-slide-inner">
+                    <div class="corpus-modal-cover corpus-modal-cover--slide" id="corpus-slide-cover-mid"></div>
+                  </div>
+                </div>
+                <div class="corpus-modal-slide">
+                  <div class="corpus-modal-slide-inner">
+                    <div class="corpus-modal-cover corpus-modal-cover--slide" id="corpus-slide-cover-next"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="corpus-modal-meta" id="corpus-modal-meta">
+          <div class="corpus-modal-row corpus-modal-row--title">
+            <p class="corpus-modal-label" data-i18n="corpusFieldTitle">Наслов на книга:</p>
+            <p class="corpus-modal-value corpus-modal-value--title" id="corpus-modal-title">—</p>
+          </div>
+          <div class="corpus-modal-row">
+            <p class="corpus-modal-label" data-i18n="corpusFieldAuthor">Автор:</p>
+            <p class="corpus-modal-value" id="corpus-modal-author">—</p>
+          </div>
+          <div class="corpus-modal-row corpus-modal-row--description">
+            <p class="corpus-modal-label" data-i18n="corpusFieldDescription">Опис:</p>
+            <p class="corpus-modal-value corpus-modal-value--description" id="corpus-modal-description">—</p>
+            <button type="button" class="corpus-read-more-btn" id="corpus-read-more" data-i18n="corpusReadMore">Прочитај повеќе</button>
+          </div>
+          <div class="corpus-modal-row">
+            <p class="corpus-modal-label" data-i18n="corpusFieldPublisher">Издавач:</p>
+            <p class="corpus-modal-value" id="corpus-modal-publisher">—</p>
+          </div>
+          <div class="corpus-modal-row corpus-modal-row--cobiss">
+            <a class="corpus-cobiss-link corpus-cobiss-link--modal" id="corpus-modal-cobiss" href="#" target="_blank" rel="noopener">COBISS запис</a>
+          </div>
+        </div>
+      </div>
+      <div class="corpus-modal-bottom-action">
+        <button type="button" class="corpus-modal-back" id="corpus-modal-close" data-i18n="corpusBackToCatalog">← Назад кон корпус</button>
+      </div>
+    </section>
+  </div>
+
+  <button
+    type="button"
+    class="corpus-to-top"
+    id="corpus-to-top"
+    aria-label="Back to top"
+    title="Back to top"
+  >↑</button>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <div class="footer-logo">Гласови на телото</div>
+      <div class="footer-copy" data-i18n="footerCopy">© 2025 · Прва архива · Медицинска хуманистика · Северна Македонија</div>
+    </div>
+    <address class="footer-contact-info" aria-label="Contact information">
+      <a href="mailto:t.kjupeva@iml.ukim.edu.mk">t.kjupeva@iml.ukim.edu.mk</a>
+      <a href="tel:+389707922574">+389707922574</a>
+    </address>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script src="corpus-texts.js"></script>
+  <script>
+    (function initCorpusGrid() {
+      var grid = document.getElementById('corpus-grid');
+      var count = document.getElementById('corpus-count');
+      var filter = document.getElementById('corpus-type-filter');
+      var search = document.getElementById('corpus-search');
+      var sort = document.getElementById('corpus-sort');
+      var modal = document.getElementById('corpus-modal');
+      var modalBackdrop = document.getElementById('corpus-modal-backdrop');
+      var modalClose = document.getElementById('corpus-modal-close');
+      var modalPrev = document.getElementById('corpus-modal-prev');
+      var modalNext = document.getElementById('corpus-modal-next');
+      var modalTrack = document.getElementById('corpus-modal-track');
+      var modalMeta = document.getElementById('corpus-modal-meta');
+      var slideCoverPrev = document.getElementById('corpus-slide-cover-prev');
+      var slideCoverMid = document.getElementById('corpus-slide-cover-mid');
+      var slideCoverNext = document.getElementById('corpus-slide-cover-next');
+      var modalTitle = document.getElementById('corpus-modal-title');
+      var modalAuthor = document.getElementById('corpus-modal-author');
+      var modalDescription = document.getElementById('corpus-modal-description');
+      var modalReadMore = document.getElementById('corpus-read-more');
+      var modalPublisher = document.getElementById('corpus-modal-publisher');
+      var modalCobiss = document.getElementById('corpus-modal-cobiss');
+      var backToTop = document.getElementById('corpus-to-top');
+      var siteFooter = document.querySelector('.site-footer');
+      var currentCard = null;
+      var isDescriptionExpanded = false;
+      var cobissLinks = {
+        'Почетокот на крајот': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/60484101',
+        'Убиецот кој не ме уби': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/64150533',
+        'Кога мама заборави да ме сака': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/56403973',
+        'Девојката со портокаловата марама': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/52732165',
+        'Пресек': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/62573829',
+        'Еден мој ден': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/51764485',
+        'Безсловен': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/63007237',
+        'Живот вреден за живеење': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/101809674',
+        'Во чекор со судбината': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/67373573',
+        'Светот на аутизмот: Патувањето на Леон': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/67378181',
+        'Зошто јас?: мојата борба со анксиозноста, стравовите и со паничните напади': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/111765002',
+        'Јас сум жива': 'https://plus-legacy.cobiss.net/cobiss/mk/mk/bib/66852357'
+      };
+      var slideAnimating = false;
+      var slidePendingDelta = 0;
+      var slideEndFallbackId = null;
+      var reduceSlideMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!grid || !count || !filter || !sort || !search || !modal || !modalBackdrop || !modalClose) return;
+
+      function getVisibleCards() {
+        return Array.prototype.slice.call(grid.querySelectorAll('.corpus-card')).filter(function (card) {
+          return window.getComputedStyle(card).display !== 'none';
+        });
+      }
+
+      function copyCoverStylesFromCard(card, targetEl) {
+        if (!targetEl) return;
+        var img = card && card.querySelector('.corpus-cover img');
+        if (img && (img.src || img.getAttribute('src'))) {
+          var u = (img.currentSrc || img.src || '').trim();
+          if (u) {
+            targetEl.style.backgroundImage = 'url("' + u.replace(/\\/g, '/').replace(/"/g, '\\"') + '")';
+            targetEl.style.backgroundColor = '';
+          } else {
+            targetEl.style.backgroundImage = 'none';
+            targetEl.style.backgroundColor = '#e8e8e8';
+          }
+          targetEl.style.backgroundSize = 'cover';
+          targetEl.style.backgroundPosition = 'center center';
+          targetEl.style.backgroundRepeat = 'no-repeat';
+          return;
+        }
+        var cover = card && card.querySelector('.corpus-cover');
+        if (cover) {
+          var cs = window.getComputedStyle(cover);
+          targetEl.style.backgroundImage = cs.backgroundImage;
+          targetEl.style.backgroundColor = cs.backgroundColor;
+          targetEl.style.backgroundSize = cs.backgroundSize || 'cover';
+          targetEl.style.backgroundPosition = cs.backgroundPosition || 'center center';
+          targetEl.style.backgroundRepeat = cs.backgroundRepeat || 'no-repeat';
+        } else {
+          targetEl.style.backgroundImage = 'none';
+          targetEl.style.backgroundColor = '#e8e8e8';
+          targetEl.style.backgroundSize = 'cover';
+          targetEl.style.backgroundPosition = 'center center';
+          targetEl.style.backgroundRepeat = 'no-repeat';
+        }
+      }
+
+      function fillThreeSlideCovers() {
+        var visible = getVisibleCards();
+        if (!visible.length || !currentCard) {
+          copyCoverStylesFromCard(null, slideCoverPrev);
+          copyCoverStylesFromCard(null, slideCoverMid);
+          copyCoverStylesFromCard(null, slideCoverNext);
+          return;
+        }
+        var idx = visible.indexOf(currentCard);
+        if (idx < 0) idx = 0;
+        var n = visible.length;
+        var prevCard = visible[(idx - 1 + n) % n];
+        var nextCard = visible[(idx + 1) % n];
+        copyCoverStylesFromCard(prevCard, slideCoverPrev);
+        copyCoverStylesFromCard(currentCard, slideCoverMid);
+        copyCoverStylesFromCard(nextCard, slideCoverNext);
+      }
+
+      function snapTrackToMiddleInstant() {
+        if (!modalTrack) return;
+        modalTrack.classList.add('corpus-modal-carousel-track--instant');
+        modalTrack.style.transform = 'translateX(-33.333333%)';
+        void modalTrack.offsetHeight;
+        modalTrack.classList.remove('corpus-modal-carousel-track--instant');
+      }
+
+      function refreshModalText(card) {
+        if (!card) return;
+        setText(modalTitle, card.dataset.title || '');
+        setText(modalAuthor, card.dataset.author || '');
+        refreshModalDescription(card);
+        var pub = (card.dataset.publisher || '').trim();
+        var yr = (card.dataset.year || '').trim();
+        var pubLine = '';
+        if (pub && yr) pubLine = pub + ' (' + yr + ')';
+        else if (pub) pubLine = pub;
+        else if (yr) pubLine = '(' + yr + ')';
+        setText(modalPublisher, pubLine);
+        refreshCobissLink(card);
+      }
+
+      function getCobissUrl(card) {
+        if (!card) return '';
+        return cobissLinks[(card.dataset.title || '').trim()] || '';
+      }
+
+      function getCobissLabel() {
+        return getLang() === 'en' ? 'COBISS record' : 'COBISS запис';
+      }
+
+      function refreshCobissLink(card) {
+        if (!modalCobiss) return;
+        var url = getCobissUrl(card);
+        if (!url) {
+          modalCobiss.hidden = true;
+          modalCobiss.removeAttribute('href');
+          return;
+        }
+        modalCobiss.hidden = false;
+        modalCobiss.href = url;
+        modalCobiss.setAttribute('aria-label', getCobissLabel() + ': ' + (card.dataset.title || ''));
+        modalCobiss.textContent = getCobissLabel();
+      }
+
+      function getFullText(card) {
+        if (!card || !window.CORPUS_FULL_TEXTS) return '';
+        var title = (card.dataset.title || '').trim();
+        return window.CORPUS_FULL_TEXTS[title] || '';
+      }
+
+      function getToggleLabels() {
+        return getLang() === 'en'
+          ? { more: 'Read more', less: 'Show less' }
+          : { more: 'Прочитај повеќе', less: 'Прикажи помалку' };
+      }
+
+      function refreshModalDescription(card) {
+        var fullText = getFullText(card);
+        var shortText = card && card.dataset.description ? card.dataset.description : '';
+        var text = isDescriptionExpanded && fullText ? fullText : shortText;
+        setText(modalDescription, text);
+        if (modalDescription) {
+          var expanded = !!(isDescriptionExpanded && fullText && fullText.trim());
+          modalDescription.classList.toggle('corpus-modal-value--description-expanded', expanded);
+        }
+        if (!modalReadMore) return;
+        var hasFullText = fullText && fullText.trim() && fullText.trim() !== shortText.trim();
+        modalReadMore.hidden = !hasFullText;
+        modalReadMore.setAttribute('aria-expanded', isDescriptionExpanded && hasFullText ? 'true' : 'false');
+        modalReadMore.textContent = isDescriptionExpanded ? getToggleLabels().less : getToggleLabels().more;
+      }
+
+      function refreshModalFromCurrentCard() {
+        var card = currentCard;
+        if (!card) return;
+        fillThreeSlideCovers();
+        snapTrackToMiddleInstant();
+        refreshModalText(card);
+        if (modalMeta) modalMeta.classList.remove('corpus-modal-meta--text-hide');
+      }
+
+      function setSlideNavDisabled(disabled) {
+        if (modalPrev) modalPrev.disabled = disabled;
+        if (modalNext) modalNext.disabled = disabled;
+      }
+
+      function finishSlideTransition() {
+        if (!slideAnimating) return;
+        slideAnimating = false;
+        setSlideNavDisabled(false);
+        var visible = getVisibleCards();
+        if (!visible.length || !currentCard) {
+          if (modalMeta) modalMeta.classList.remove('corpus-modal-meta--text-hide');
+          return;
+        }
+        var idx = visible.indexOf(currentCard);
+        if (idx < 0) idx = 0;
+        var n = visible.length;
+        var delta = slidePendingDelta;
+        if (delta > 0) currentCard = visible[(idx + 1) % n];
+        else currentCard = visible[(idx - 1 + n) % n];
+        isDescriptionExpanded = false;
+        fillThreeSlideCovers();
+        snapTrackToMiddleInstant();
+        refreshModalText(currentCard);
+        if (modalMeta) {
+          void modalMeta.offsetHeight;
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              modalMeta.classList.remove('corpus-modal-meta--text-hide');
+            });
+          });
+        }
+      }
+
+      function clearSlideEndTimers() {
+        if (slideEndFallbackId !== null) {
+          clearTimeout(slideEndFallbackId);
+          slideEndFallbackId = null;
+        }
+      }
+
+      function stepModalBook(delta) {
+        var visible = getVisibleCards();
+        if (!visible.length || !currentCard || slideAnimating) return;
+        if (reduceSlideMotion || !modalTrack) {
+          var idx = visible.indexOf(currentCard);
+          if (idx < 0) idx = 0;
+          var n = visible.length;
+          currentCard = visible[(idx + delta + n) % n];
+          isDescriptionExpanded = false;
+          refreshModalFromCurrentCard();
+          return;
+        }
+        slideAnimating = true;
+        slidePendingDelta = delta;
+        setSlideNavDisabled(true);
+        if (modalMeta) modalMeta.classList.add('corpus-modal-meta--text-hide');
+        modalTrack.classList.remove('corpus-modal-carousel-track--instant');
+        void modalTrack.offsetHeight;
+        if (delta > 0) {
+          modalTrack.style.transform = 'translateX(-66.666667%)';
+        } else {
+          modalTrack.style.transform = 'translateX(0)';
+        }
+        var onTrackTransitionEnd = function (e) {
+          if (e.target !== modalTrack || e.propertyName !== 'transform') return;
+          modalTrack.removeEventListener('transitionend', onTrackTransitionEnd);
+          clearSlideEndTimers();
+          finishSlideTransition();
+        };
+        modalTrack.addEventListener('transitionend', onTrackTransitionEnd);
+        slideEndFallbackId = setTimeout(function () {
+          slideEndFallbackId = null;
+          if (!slideAnimating) return;
+          modalTrack.removeEventListener('transitionend', onTrackTransitionEnd);
+          finishSlideTransition();
+        }, 650);
+      }
+
+      function getLang() {
+        return localStorage.getItem('siteLang') === 'en' ? 'en' : 'mk';
+      }
+
+      function updateCount(visible) {
+        count.textContent = getLang() === 'en' ? visible + ' results' : visible + ' записи';
+      }
+
+      function apply() {
+        var type = filter.value;
+        var query = (search.value || '').trim().toLowerCase();
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.corpus-card'));
+        cards.sort(function (a, b) {
+          var key = sort.value;
+          var aVal = '';
+          var bVal = '';
+          if (key.indexOf('author') === 0) {
+            aVal = (a.dataset.author || '').toLowerCase();
+            bVal = (b.dataset.author || '').toLowerCase();
+          } else {
+            aVal = (a.dataset.title || '').toLowerCase();
+            bVal = (b.dataset.title || '').toLowerCase();
+          }
+         var asc = key.indexOf('desc') === -1;
+         var result = aVal.localeCompare(bVal, 'mk', {
+         sensitivity: 'base',
+         ignorePunctuation: true
+        });
+         return asc ? result : -result;
+        });
+        cards.forEach(function (card) { grid.appendChild(card); });
+
+        var visible = 0;
+        cards.forEach(function (card) {
+          var typeMatch = type === 'all' || card.dataset.type === type;
+          var title = (card.dataset.title || '').toLowerCase();
+          var author = (card.dataset.author || '').toLowerCase();
+          var cardType = (card.dataset.type || '').toLowerCase();
+          var illnessKey = (card.dataset.illnessKey || '').toLowerCase();
+          var textMatch = !query || title.indexOf(query) !== -1 || author.indexOf(query) !== -1 || cardType.indexOf(query) !== -1 || illnessKey.indexOf(query) !== -1;
+          var show = typeMatch && textMatch;
+          card.style.display = show ? 'block' : 'none';
+          if (show) visible++;
+        });
+        if (modal.getAttribute('aria-hidden') === 'false' && currentCard) {
+          var vis = getVisibleCards();
+          if (vis.indexOf(currentCard) === -1) {
+            if (vis.length) {
+              currentCard = vis[0];
+              isDescriptionExpanded = false;
+              refreshModalFromCurrentCard();
+            } else {
+              closeBook();
+            }
+          } else {
+            fillThreeSlideCovers();
+            refreshModalText(currentCard);
+          }
+        }
+        updateCount(visible);
+      }
+
+      function setText(el, value) {
+        if (!el) return;
+        el.textContent = value && value.trim() ? value : '—';
+      }
+
+      function openBook(card) {
+        if (!card) return;
+        currentCard = card;
+        isDescriptionExpanded = false;
+        refreshModalFromCurrentCard();
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('corpus-modal-open');
+      }
+
+      function closeBook() {
+        currentCard = null;
+        isDescriptionExpanded = false;
+        slideAnimating = false;
+        slidePendingDelta = 0;
+        clearSlideEndTimers();
+        if (modalMeta) modalMeta.classList.remove('corpus-modal-meta--text-hide');
+        if (modalTrack) {
+          modalTrack.classList.add('corpus-modal-carousel-track--instant');
+          modalTrack.style.transform = 'translateX(-33.333333%)';
+          modalTrack.classList.remove('corpus-modal-carousel-track--instant');
+        }
+        setSlideNavDisabled(false);
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('corpus-modal-open');
+      }
+
+      function openRequestedBookFromUrl() {
+        var params = new URLSearchParams(window.location.search);
+        var requestedTitle = (params.get('book') || '').trim();
+        if (!requestedTitle) return;
+
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.corpus-card'));
+        var requestedCard = cards.find(function (card) {
+          return (card.dataset.title || '').trim() === requestedTitle;
+        });
+        if (!requestedCard) return;
+
+        requestedCard.scrollIntoView({ block: 'center' });
+        openBook(requestedCard);
+      }
+
+      function updateBackToTopVisibility() {
+        if (!backToTop) return;
+        var isScrolled = window.scrollY > 240;
+        backToTop.classList.toggle('is-visible', isScrolled);
+      }
+
+      function updateBackToTopOffset() {
+        if (!backToTop || !siteFooter) return;
+        var footerRect = siteFooter.getBoundingClientRect();
+        var overlap = Math.max(0, window.innerHeight - footerRect.top);
+        backToTop.style.bottom = (20 + overlap) + 'px';
+      }
+
+      filter.addEventListener('change', apply);
+      sort.addEventListener('change', apply);
+      search.addEventListener('input', apply);
+      document.addEventListener('languageChanged', apply);
+      grid.addEventListener('click', function (event) {
+        if (event.target.closest('.corpus-cobiss-link')) return;
+        var card = event.target.closest('.corpus-card');
+        if (!card) return;
+        openBook(card);
+      });
+      modalBackdrop.addEventListener('click', closeBook);
+      modalClose.addEventListener('click', closeBook);
+      if (modalReadMore) {
+        modalReadMore.addEventListener('click', function () {
+          if (!currentCard) return;
+          isDescriptionExpanded = !isDescriptionExpanded;
+          refreshModalDescription(currentCard);
+        });
+      }
+      if (modalPrev) {
+        modalPrev.addEventListener('click', function (event) {
+          event.stopPropagation();
+          stepModalBook(-1);
+        });
+      }
+      if (modalNext) {
+        modalNext.addEventListener('click', function (event) {
+          event.stopPropagation();
+          stepModalBook(1);
+        });
+      }
+      document.addEventListener('keydown', function (event) {
+        if (modal.getAttribute('aria-hidden') === 'false') {
+          if (event.key === 'Escape') {
+            closeBook();
+          } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            stepModalBook(-1);
+          } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            stepModalBook(1);
+          }
+        }
+      });
+      if (backToTop) {
+        backToTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+      window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+      window.addEventListener('scroll', updateBackToTopOffset, { passive: true });
+      window.addEventListener('resize', updateBackToTopOffset);
+      apply();
+      openRequestedBookFromUrl();
+      updateBackToTopVisibility();
+      updateBackToTopOffset();
+    })();
+  </script>
+</body>
+</html>

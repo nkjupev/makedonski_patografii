@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Општи поими — Македонски патографии</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f8f6fb;
+      --ink: #2a2438;
+      --accent: #6b4c9a;
+      --accent-light: #b8a9c9;
+      --shadow: rgba(42, 36, 56, 0.12);
+      --card-bg: #fdfcff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      background: linear-gradient(180deg, rgba(184, 169, 201, 0.25) 0%, transparent 100%);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--ink);
+      opacity: 0.85;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--accent-light);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .navbar a {
+      padding: 0.5rem 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .navbar a:hover {
+      background: rgba(107, 76, 154, 0.12);
+      color: var(--accent);
+    }
+
+    .navbar a.active {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .terms-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .terms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .term-item {
+      background: var(--card-bg);
+      border: 1px solid var(--accent-light);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .term-item dt {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .term-item dd {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    @media (max-width: 520px) {
+      header {
+        padding: 2.5rem 1rem 1.75rem;
+      }
+
+      .navbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .navbar a {
+        min-height: 44px;
+        text-align: center;
+      }
+
+      main {
+        padding: 1.5rem 0.85rem 3rem;
+      }
+
+      .term-item {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="pageTitle">Македонски патографии</h1>
+    <p class="subtitle" id="pageSubtitle">Книги и нивни кратки прегледи</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html" id="navHome">Home</a>
+    <a href="opsti-poimi.html" id="navTerms" class="active">Општи поими</a>
+  </nav>
+
+  <main>
+    <section class="terms-section">
+      <h2 id="termsHeading">Општи поими</h2>
+      <div class="terms-list" id="termsList"></div>
+    </section>
+  </main>
+
+  <script>
+    const ui = {
+      mk: {
+        title: 'Македонски патографии',
+        subtitle: 'Книги и нивни кратки прегледи',
+        navHome: 'Почетна',
+        navTerms: 'Општи поими',
+        termsHeading: 'Општи поими',
+        pageTitle: 'Општи поими — Македонски патографии'
+      },
+      en: {
+        title: 'Macedonian Pathographies',
+        subtitle: 'Books and short reviews',
+        navHome: 'Home',
+        navTerms: 'General terms',
+        termsHeading: 'General terms',
+        pageTitle: 'General terms — Macedonian Pathographies'
+      }
+    };
+
+    const terms = {
+      mk: [
+        { term: 'Патографија', definition: 'Жанр кој ги опишува искуствата со болест, болка или здравствена криза, често во форма на мемоари, дневник или роман. Фокусот е на субјективното доживување на болеста.' },
+        { term: 'Биографија', definition: 'Животопис на некоја личност напишан од друг автор. Ги следи настаните, достигнувањата и контекстот на животот на опишаната личност.' },
+        { term: 'Автобиографија', definition: 'Животопис што личноста си го пишува сама за себе. Прволично раскажување на сопствениот живот и искуства.' },
+        { term: 'Мемоари', definition: 'Сèќавања или записи од личен живот, обично со фокус на одреден период или тема. Понекогаш се преклопува со автобиографијата и патографијата.' },
+        { term: 'Роман', definition: 'Подолга прозна дела со измислени ликови и настани. Кога ги вклучува темите на болест и опоравување, може да се смета за патографија во форма на фикција.' },
+        { term: 'Есеј', definition: 'Кратка прозна форма во која авторот размислува или аргументира за некоја тема. Во контекст на патографијата, често се среќава личниот есеј за здравје и болка.' }
+      ],
+      en: [
+        { term: 'Pathography', definition: 'A genre that describes experiences with illness, pain or health crisis, often in the form of memoirs, diary or novel. The focus is on the subjective experience of illness.' },
+        { term: 'Biography', definition: 'An account of someone\'s life written by another author. It follows the events, achievements and context of the subject\'s life.' },
+        { term: 'Autobiography', definition: 'A life story that a person writes about themselves. First-person narrative of one\'s own life and experiences.' },
+        { term: 'Memoir', definition: 'Recollections or records from personal life, usually focused on a particular period or theme. Sometimes overlaps with autobiography and pathography.' },
+        { term: 'Novel', definition: 'A longer prose work with fictional characters and events. When it includes themes of illness and recovery, it can be considered pathography in the form of fiction.' },
+        { term: 'Essay', definition: 'A short prose form in which the author reflects or argues on a topic. In the context of pathography, the personal essay on health and pain is often found.' }
+      ]
+    };
+
+    let currentLang = localStorage.getItem('siteLang') || 'mk';
+
+    const pageTitle = document.getElementById('pageTitle');
+    const pageSubtitle = document.getElementById('pageSubtitle');
+    const navHome = document.getElementById('navHome');
+    const navTerms = document.getElementById('navTerms');
+    const termsHeading = document.getElementById('termsHeading');
+    const termsList = document.getElementById('termsList');
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('siteLang', lang);
+      document.documentElement.lang = lang === 'mk' ? 'mk' : 'en';
+      document.title = ui[lang].pageTitle;
+      pageTitle.textContent = ui[lang].title;
+      pageSubtitle.textContent = ui[lang].subtitle;
+      navHome.textContent = ui[lang].navHome;
+      navTerms.textContent = ui[lang].navTerms;
+      termsHeading.textContent = ui[lang].termsHeading;
+      renderTerms();
+    }
+
+    function renderTerms() {
+      termsList.innerHTML = '';
+      terms[currentLang].forEach(function(item) {
+        const dl = document.createElement('dl');
+        dl.className = 'term-item';
+        const dt = document.createElement('dt');
+        dt.textContent = item.term;
+        const dd = document.createElement('dd');
+        dd.textContent = item.definition;
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        termsList.appendChild(dl);
+      });
+    }
+
+    setLanguage(currentLang);
+  </script>
+</body>
+</html>
