@@ -428,7 +428,20 @@
       function getFullText(card) {
         if (!card || !window.CORPUS_FULL_TEXTS) return '';
         var title = (card.dataset.title || '').trim();
-        return window.CORPUS_FULL_TEXTS[title] || '';
+        if (!title) return '';
+        var fullText = window.CORPUS_FULL_TEXTS[title];
+        if (fullText) return fullText;
+        var altTitle = title.replace(/^([^:]+:\s*)(.*)$/, function (match, prefix, suffix) {
+          return prefix + '\n(' + suffix + ')';
+        });
+        if (altTitle !== title && window.CORPUS_FULL_TEXTS[altTitle]) {
+          return window.CORPUS_FULL_TEXTS[altTitle];
+        }
+        var shortTitle = title.split(':')[0].trim();
+        if (shortTitle && window.CORPUS_FULL_TEXTS[shortTitle]) {
+          return window.CORPUS_FULL_TEXTS[shortTitle];
+        }
+        return '';
       }
 
       function getToggleLabels() {

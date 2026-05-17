@@ -1567,12 +1567,7 @@
 
       function scheduleAutoAdvance() {
         clearAutoAdvance();
-        if (!built || !mq.matches || reducedMotion() || document.hidden) return;
-        if (isReadingRoomModalOpen()) return;
-        autoAdvanceTimer = setTimeout(function () {
-          autoAdvanceTimer = null;
-          tryAdvanceCarousel();
-        }, AUTO_ADVANCE_MS);
+        return;
       }
 
       function tryAdvanceCarousel() {

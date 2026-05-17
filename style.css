@@ -1197,6 +1197,10 @@ p.intro-split-text{
     grid-column: 1;
     grid-row: 2;
   }
+
+  body[data-page="contact"] h1#contact-title.about-title.about-title--plain {
+    padding-left: 117px !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1870,6 +1874,9 @@ body[data-page="index"] .reading-room-carousel-shell .medical-feature-grid {
 @media (min-width: 701px) {
   .reading-room-cards .medical-feature-card {
     height: 100%;
+  }
+  p.intro-split-text {
+    font-size: 10px !important;
   }
 }
 
@@ -4348,6 +4355,10 @@ body > .site-footer {
   body[data-page="biography"] .about-title.about-title--plain {
     font-size: clamp(1rem, 4.6vw, 1.7rem);
     line-height: 1.12;
+    padding-left:100px !important;
+  }
+  h1#contact-title.about-title.about-title--plain{
+  padding: left 0px !important;
   }
   body[data-page="biography"] .welcome-holland-title {
     font-size: clamp(1rem, 4vw, 1.5rem);
@@ -6001,7 +6012,7 @@ body:not([data-page="index"]) .index-nav-center-title {
   .legend-section,
   .archive-section,
   .about-strip {
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     padding-right: 1rem;
   }
 
@@ -6192,7 +6203,7 @@ body:not([data-page="index"]) .index-nav-center-title {
   }
 
   .legend-card {
-    padding: 18px 16px;
+    padding: 5px 16px;
   }
 
   .legend-card-text {
