@@ -1135,8 +1135,8 @@ body[data-page="about"] .site-intro-panel .intro-split-body--about > .contact-pa
   color: #1a1008;
   margin: 0;
 }
-p.intro-split-text{
-  font-size: 20px !important;
+p.intro-split-text {
+  font-size: 12px !important;
 }
 .intro-split-body--about {
   grid-template-columns: 1fr;
@@ -1876,7 +1876,7 @@ body[data-page="index"] .reading-room-carousel-shell .medical-feature-grid {
     height: 100%;
   }
   p.intro-split-text {
-    font-size: 10px !important;
+    font-size: 20px !important;
   }
 }
 
